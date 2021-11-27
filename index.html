@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+        <style>
+            /* PODEMOS IMPORTAR, DE UN VIAJE, DOS FUENTES Y SUS RESPECTIVOS PESOS */
+
+            @import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap");
+
+            /* 
+            Vamos a contradecir a Bootstrap, partiendo con un par de variables
+            1) La que define la familia tipográfica que se aplica por defecto
+            2) La que define un color que podríamos reutilizar
+            */
+
+            :root {
+                --bs-body-font-family: "Roboto", sans-serif;
+                --bs-primary: #2a911e !important;
+            }
+
+            a {
+                color: #222;
+                text-decoration: underline;
+                transition: color ease 0.5s;
+            }
+            a:hover {
+                color: var(--bs-primary);
+                text-decoration: none;
+                transition: color ease 0.5s;
+            }
+
+            /* vamos a ajustar los pesos de algunos títulos a lo que dispone la fuente  */
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                font-weight: 400;
+                font-family: "PT Serif", serif;
+            }
+
+            /* vamos a ajustar los pesos de otros títulos y negrita a lo que dispone la fuente  */
+
+            h5,
+            h6 {
+                font-weight: 700;
+                font-family: "PT Serif", serif;
+            }
+
+            /* AQUÍ HAGO UN AJUSTE IDIOMÁTICO:  EL GRINGO ENFATIZA CON ITÁLICA. EN CASTELLANO NO LO HACEMOS ASÍ, ENFATIZAMOS CON PESO DE FUENTE, MANTENIENDO UN ESTILO NORMAL */
+
+            strong,
+            b,
+            em {
+                font-weight: 500;
+                font-style: normal;
+            }
+
+            /* definiré un tamaño del título de primer nivel (h1) que se ajuste según el viewport width --> https://www.yunbitsoftware.com/blog/2017/06/22/viewport-units-css-que-es/ */
+
+            h1 {
+                font-size: calc(2rem + 3vw);
+            }
+
+            /* repetiré el truco anterior con el título de segundo nivel (h2), que, a diferencia del anterior, puedo ocupar varias veces en la misma página */
+
+            h2 {
+                font-size: calc(0.75rem + 1vw);
+            }
+
+            /* usaré el ">" entre el título se segundo nive (h2) y el lapso en la misma línea (span) --> https://techbrij.com/css-selector-adjacent-child-sibling */
+
+            h2 > span {
+                background: var(--bs-primary);
+                color: #fff;
+            }
+
+            /* sigamos con el título de tercer nivel (h3) */
+
+            h3 {
+                font-size: calc(1.5rem + 1vw);
+            }
+
+            /* HOMERO */
+
+            @keyframes corre {
+                0% {
+                    margin-left: -30vw;
+                }
+                100% {
+                    margin-left: 90vw;
+                }
+            }
+
+            #homero {
+                animation: corre 5s infinite;
+            }
+        </style>
+
+        <!--ESTO SERVIRÁ PARA COMPARAR UN ANTES Y UN DESPUÉS-->
+        <link href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css" rel="stylesheet" />
+
+        <title>Siamang Infografía</title>
+    </head>
+    <body>
+        <!--ESTE ES EL ENCABEZADO-->
+        <header class="container">
+            <div class="row">
+                <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                    <h2 class="text-center fst-italic mt-5"><span class="px-2 py-1">Symphalangus syndactylus</span></h2>
+
+                    <h1 class="text-center py-3">Siamang</h1>
+
+                    <p class="lead">Este simio de la familia de los Hilobátidos (gibones o simios pequeños) es originario de Indonesia, Malasia y Tailandia y es uno de los pocos mamíferos que forma pareja de por vida. De esta manera, el macho trabaja junto con la hembra en el cuidado de las crías y conviven estrechamente utilizando el canto amplificado por su saco gural para indicar que se encuentran en pareja o para marcar el territorio de su familia.</p>
+
+                    <p>El comercio de madera, los incendios y la caza ilegal constituyen las principales amenazas que han llevado al Siamang a ser una especie en peligro de extinción, por lo que distintas acciones de conservación se han llevado a cabo para salvar a las poblaciones de vida silvestre.</p>
+
+                    <div class="row">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" class="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 col-xxl-6 my-3 mx-auto">
+                            <style type="text/css">
+                                line,
+                                path {
+                                    fill: none;
+                                    stroke: #777777;
+                                    stroke-linecap: round;
+                                }
+                                .blanco {
+                                    fill: #ffffff;
+                                    font-size: 45px;
+                                }
+                                .gris {
+                                    fill: #777777;
+                                    font-size: 35px;
+                                }
+                                .no {
+                                    fill: #999999;
+                                }
+                                .si {
+                                    fill: var(--bs-primary);
+                                }
+                            </style>
+                            <g id="ex">
+                                <circle class="no" cx="82.1" cy="228.7" r="46.4" />
+                                <text transform="matrix(1 0 0 1 54 245)" class="blanco">EX</text>
+                            </g>
+                            <g id="ew">
+                                <circle class="no" cx="212.6" cy="228.7" r="46.4" />
+                                <text transform="matrix(1 0 0 1 180 245)" class="blanco">EW</text>
+                            </g>
+                            <g id="cr">
+                                <circle class="no" cx="342.9" cy="228.7" r="46.4" />
+                                <text transform="matrix(1 0 0 1 313 245)" class="blanco">CR</text>
+                            </g>
+                            <g id="en">
+                                <circle class="si" cx="473.6" cy="228.7" r="46.4" />
+                                <text transform="matrix(1 0 0 1 444 245)" class="blanco">EN</text>
+                            </g>
+                            <g id="vu">
+                                <circle class="no" cx="603.8" cy="228.7" r="46.4" />
+                                <text transform="matrix(1 0 0 1 574 245)" class="blanco">VU</text>
+                            </g>
+                            <g id="nt">
+                                <circle class="no" cx="734.1" cy="228.7" r="46.4" />
+                                <text transform="matrix(1 0 0 1 705 245)" class="blanco">NT</text>
+                            </g>
+                            <g id="lc">
+                                <circle class="no" cx="865.6" cy="228.7" r="46.4" />
+                                <text transform="matrix(1 0 0 1 840 245)" class="blanco">LC</text>
+                            </g>
+                            <g id="datos">
+                                <text transform="matrix(1 0 0 1 29.8186 54.2935)" class="gris">Extinto</text>
+                                <text transform="matrix(1 0 0 1 382.5784 54.2935)" class="gris">Amenazado</text>
+                                <text transform="matrix(1 0 0 1 760.9694 54.2935)" class="gris">Preocupación</text>
+                                <text transform="matrix(1 0 0 1 812.2867 95.3477)" class="gris">menor</text>
+                                <line class="st6" x1="865.6" y1="119.4" x2="865.6" y2="162.5" />
+                                <line class="st6" x1="82.1" y1="77.9" x2="82.1" y2="162.5" />
+                                <path
+                                    class="st6"
+                                    d="M279.3,162.5v-55.2c0-6,4.8-10.8,10.8-10.8h161.1c4.4,0,7.9-0.3,10.4-0.9c2.6-0.5,5-1.9,7-3.8 c2.6-3.3,4.1-6,4.3-8.6c0.2,2.6,1.7,5.3,4.3,8.6c2.1,2.1,4.4,3.3,7,3.8c2.6,0.5,6.2,0.9,10.4,0.9h163.2c6,0,10.8,4.8,10.8,10.8v55.2"
+                                />
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!--Muestra el chucao chico o el grando, pero carga ambos-->
+
+                    <h4 class="text-center mt-5 mb-3">Morfología</h4>
+                    <object data="cositas/morfologia.svg" type="image/svg+xml" class="d-md-none"></object>
+                    <object data="cositas/morfologia.svg" type="image/svg+xml" class="d-none d-md-block"></object>
+                    <object data="cositas/comparacion-siamang.svg" type="image/svg+xml" class="d-md-none"></object>
+                    <object data="cositas/comparacion-siamang.svg" type="image/svg+xml" class="d-none d-md-block"></object>
+
+                     <!--ANIMACIÓN CON SVG y CSS-->
+
+                        <h4 class="text-center mt-5 mb-3">Saco gural o faríngeo sirve amplificar el canto</h4>
+                        <object class="mx-5" data="cositas/el-grito.svg" type="image/svg+xml"></object>
+                        <p>Este saco es una característica morfológica <em>presente sólo en el Siamang</em> y cuando se infla puede llegar a alcanzar el tamaño de su cabeza. El canto es realizado en forma periódica durante las mañanas por el <em>macho</em> y la <em>hembra</em>, para avisar que han encontrado pareja y para marcar territorio.</p>
+
+                         <!--Acá se cargan dos audios, pero sonará uno-->
+                    <div class="mx-auto px-3 py-2 rounded-pill shadow-sm" style="width:220px; background:#ddd">
+                        <audio id="elAudio">
+                            <source src="cositas/cantosiamang.mp3" type="audio/mpeg">
+                            
+                        </audio>
+                        <div class="form-check form-switch text-center">
+                            <input class="form-check-input" type="checkbox" id="elSwitch">
+                            <label class="form-check-label" for="elSwitch">Escucha al Siamang</label>
+                        </div>
+                    </div>
+
+                     <!--ANIMACIÓN CON GIF-->                        
+
+                        <h4 class="text-center mt-5 mb-3"></h4>
+                        <div class="text-center pb-4">
+                            <img src="cositas/SIAMANGGIF.gif" class="w-50 mx-auto" />
+                        </div>
+
+                    <h4 class="text-center mt-5 mb-3">Taxonomía</h4>
+                    <object data="cositas/taxonomia-siamang.svg" type="image/svg+xml" class="d-md-none"></object>
+                    <object data="cositas/taxonomia-siamang.svg" type="image/svg+xml" class="d-none d-md-block"></object>
+
+                    <!--Se muestra o no por una clase de Bootstrap que responde al ancho de pantalla-->
+                </div>
+            </div>
+            <div class="container">
+                    <div class="row">
+                        <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto my-5">
+                            <p>Ellos pertenecen a la Superfamilia de los <em>Hominoideos</em>, los que agrupan a los primates sin cola, incluyendo al humano. Las subespecies se diferencian principalmente por el <em>lugar en donde habitan</em> (Sumatra de Indonesia y Malasia). </p>
+                        </div>
+                    </div>
+                </div>
+        </header>
+        <!--ESTE ES EL CONTENIDO PRINCIPAL, ESTÁ DIVIVIDO EN VARIAS SECCIONES-->
+        <main class="pb-5">
+            <!--SECCIÓN ANCHA-->
+            <section id="seccion_ancha">
+                <div class="container-fluid g-0">
+                    <div class="row g-0">
+                        <div class="col-12">
+                            <h4 class="text-center mt-5 mb-3">Ubicación en vida silvestre</h4>
+                            <!--VAMOS A INCLUIR TRES SVG EN UN CARRUSEL-->
+                       <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="cositas/mapa_1.svg" class="d-block w-100" alt="cositas/mapa_1.svg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5></h5>
+        <p></p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="cositas/mapa_2.svg" class="d-block w-100" alt="cositas/mapa_2.svg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5></h5>
+        <p></p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="cositas/mapa_3.svg" class="d-block w-100" alt="cositas/mapa_3.svg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5></h5>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto my-5">
+                           
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--SECCIÓN COMPARATIVA-->
+
+
+            <section class="container" id="seccion_comparativa">
+                <div class="row">
+                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                        <h4 class="text-center mt-5 mb-3">Ciclo de vida</h4>
+                        <object data="cositas/ciclo-vida.svg" type="image/svg+xml" class="my-3"></object>
+                         <p>Esta especie practica la <em>monogamia</em> (vinculo no muy común en vida silvestre) y ambos sexos practican el <em>cuidado parental</em>. Esto se puede deber a que la hembra es dominante y el macho debe asegurar el cuidado y permanencia de su descendencia.</p>
+                         <h4 class="text-center mt-5 mb-3">Actividad diaria</h4>
+
+                          <object data="cositas/actividad-diaria-siamang.svg" type="image/svg+xml" class="my-3"></object>
+
+                          <p>Los grándes árboles nativos de los bosques de Indonesia, Sumatra y Tailandia son indispensables para que el Siamang pueda realizar hábitos diarios como el acicalamiento y búsqueda de comida. Ante esto, la <em>pérdida de flora que su hábitat ha sufrido en estos últimos años</em>, está directamente relacionada con la <em>declinación de su población</em>.</p>
+                    </div>
+                </div>
+            </section>
+            <!--SECCIÓN YUXTAPUESTA-->
+             <h4 class="text-center mt-5 mb-3">Amenazas</h4>
+            <object data="cositas/amenazas.svg" type="image/svg+xml" class="my-3"></object>
+            <section class="container" id="seccion_yuxtapuesta">
+                <div class="row">
+                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                        <h3 class="text-center mt-5 mb-3"></h3>
+                        <div id="yuxtaposicion" class="my-3">
+                            <img src="cositas/bosque_1.jpg" alt="Bosque Nativo " />
+                            <img src="cositas/bosque_2.jpg" alt="Incendios" />
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+            </section>
+            <!--SECCIÓN MOVILIZADA-->
+            <section class="container" id="seccion_movilizada">
+                <div class="row">
+                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-12 mx-auto">
+                        <h3 class="text-center mt-5 mb-3"></h3>
+
+                        <!--INTERACCIÓN-->
+                        
+                        <h4 class="text-center mt-5 mb-3">Destrucción del bosque y acciones de conservación</h4>
+                        <object data="cositas/lineatiempo-siamang.svg" type="image/svg+xml" class="my-3"></object>
+
+
+                 
+
+                       
+                        <p></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!--ESTE ES EL PIE DE PÁGINA-->
+        <footer class="bg-dark text-white-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col py-3">
+                        <p class="text-center small">Revisa <a href="otro-formato.html" class="link-light">el otro formato</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- UNA VEZ EL NAVEGADOR HAYA LEIDO TODO, PODEMOS MANIPULAR SU COMPRENSIÓN-->
+        <!--EL SIGUIENTE PROGRAMITA CAMBIA EL OJO-->
+        <script>
+            function getValue(radio) {
+                if (radio.value == "nocturno") {
+                    document.getElementById("poca_luz").classList.remove("d-none");
+                    document.getElementById("mucha_luz").classList.add("d-none");
+                } else {
+                    document.getElementById("poca_luz").classList.add("d-none");
+                    document.getElementById("mucha_luz").classList.remove("d-none");
+                }
+            }
+        </script>
+        <!--BOOTSTRAP OFRECE SU PROPIA BIBLIOTECA DE JAVASCRIPT-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!--LO QUE SIGUE ES OTRA BIBLIOTECA DE JAVASCRIPT-->
+        <script src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js"></script>
+        <!--LO QUE SIGUE ES LA CONFIGURACIÓN DE LA COMPARACIÓN DE IMÁGENES-->
+        <script>
+            const element = document.querySelector("#yuxtaposicion");
+            const options = {
+                controlColor: "#fff",
+                controlShadow: true,
+                addCircle: true,
+                addCircleBlur: true,
+                showLabels: true,
+                labelOptions: {
+                    before: "Cara",
+                    after: "Sello",
+                    onHover: false,
+                },
+            };
+            const viewer = new ImageCompare(element, options).mount();
+        </script>
+<!--CON EL SIGUIENTE SCRIPT HAGO CANTAR AL CHUCAO-->
+        <script>
+            var canto = document.getElementById("elAudio"); 
+            var boton = document.getElementById("elSwitch");
+            boton.addEventListener('change', function() {
+                if (this.checked) {
+                    canto.play();
+                } else {
+                    canto.pause();
+                }
+            });
+        </script>
+    </body>
+</html>
